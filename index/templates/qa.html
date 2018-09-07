@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    {{Msg}}
+    <form action="/aqu/" method="post">
+    {% csrf_token %}
+        问题:<input type="text" name="qname">
+        答案:<input type="text" name="qanswer">
+        <input type="submit" name="">
+    </form>
+</body>
+</html>

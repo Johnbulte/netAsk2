@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+</head>
+<body>
+出题玩家的出题为
+<h1 id="question">{{question}}</h1>
+
+请输入答案: <input type="text" name="" id="panswer">
+<input type="hidden" name="" value="{{answer}}" id="canswer">
+<button onclick="que()">检测分数</button>
+<div id="score"></div>
+<form action="/paihan/" method="post">
+{% csrf_token %}
+    <input type="hidden" name="score" id="formscore">
+    答题人:<input type="text" name="pname">
+    <input type="submit" name="">
+</form>
+
+
+<script type="text/javascript">
+    function que() {
+        
+        // body...
+        var question=$('#question').text();
+        var panswer=$('#panswer').val();
+        var canswer=$('#canswer').val();
+       
+        var a=canswer.search(panswer)
+        if (a!=-1) {
+
+            var acount=panswer.length
+            var count=canswer.length
+            var score=parseInt(acount/count*100)
+            $('#score').text(score)
+            $('#formscore').val(score)
+        }else{$('#score').text(0)
+        score=0
+        $('#formscore'.val(score))
+    }
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>网络问答系统</title>
+    <link href="/static/css/1.css" rel="stylesheet" type="text/css">
+    
+    <!--End Framework-->
+     <script src="/static/js/ui.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#form').ffform({ animation: 'flip', submitButton: '#submit', validationIndicator: '#validation', errorIndicator: '#error', successIndicator: '#success', 'fields': [{ 'id': 'name', required: true, requiredMsg: 'Name is required', type: 'alpha', validate: true, msg: 'Invalid Name' }, { 'id': 'email', required: true, requiredMsg: 'E-Mail is required', type: 'email', validate: true, msg: 'Invalid E-Mail Address' }, { 'id': 'phone', required: false, type: 'custom', validate: false, msg: 'Invalid Phone #' }, { 'id': 'message', required: false, type: 'text', validate: false, msg: ''}] });
+        });
+    </script>
+</head>
+<body style="background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536213712477&di=bdc1867fa7dfb5aaaaa98be1d01b8f4f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0380b9957b813b40000012e7eff009c.jpg);width:100%;height:100%;">
+    <!-- <div class="demos-buttons">
+        <h3>
+            Demos</h3>
+        <a href="index.html" class="submit">Simple</a><br />
+        <a href="flipin.html" class="submit">Flip In</a> <a href="fromright.html" class="submit">
+            From Right</a>
+        <br>
+        <a href="bouncy.html" class="submit">Bouncy</a> <a href="fadein.html" class="submit">
+            Fade In</a><br>
+        <a href="roatebottom.html" class="submit">Rotate From Bottom</a>
+        <br>
+        <a href="fromtop.html" class="submit active">From Top</a><br>
+        <a href="pagelevel01.html" class="submit">Page Level 01</a><br>
+        <a href="pagelevel02.html" class="submit">Page Level 02</a><br>
+        <a href="pagelevel03.html" class="submit">Page Level 03</a>
+    </div> -->
+    <section id="getintouch" class="fadeInDownBig animated">
+        <div class="container" style="border-bottom: 0;">
+            <h1>
+                <span>欢迎使用网络问答系统</span>
+            </h1>
+            {{Msg}}
+        </div>
+        <div class="container">
+            <form class="contact" action="/aqu/" method="post" id="form">
+            {% csrf_token %}
+            <div class="row clearfix">
+                <div class="lbl">
+                    <label for="name">
+                        请出题</label>
+                </div>
+                <div class="ctrl">
+                    <input type="text" id="name" name="qname"  placeholder="请输入你要问的问题" style="height:150px;">
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="lbl">
+                    <label for="email">
+                        请输入答案/模糊匹配</label>
+                </div>
+                <div class="ctrl">
+                    <input type="text" id="email" name="qanswer" 
+                        placeholder="请输入你的答案" style="height:150px;">
+                        <div class="row  clearfix">
+                            <div class="span10 offset2">
+                                <input type="submit" name="submit" id="submit" class="submit" value="提交问题">
+                            </div>
+                        </div>
+                </div>
+            
+            </form>
+            <!-- <div id="success">
+                Your E-Mail has been sent successfully!</div>
+            <div id="error">
+                Unable to send e-mail at the moment, please try later.</div>
+            <div id="validation">
+            </div> -->
+        </div>
+    </section>
+</body>
+</html>
